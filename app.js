@@ -26,17 +26,16 @@ app.post('/result', (req, res) => {
             firstNumber,
             secondNumber
         });
-        // res.status(200).render('result', {solution: {result: outputValue}});
     }
-    // }else if(operation === 'product'){
-    //     const simpleCalculator = new Calculator(+firstNumber, +secondNumber);
-    //     const answer = simpleCalculator.product();
-
-    //     res.status(200).render('result', {solution: {result: outputValue}});
-    // }
-
-    // res.send('You Typed An Invalid Number');
-
+    else if(operation === 'product'){
+        const Cal = new Calculator(+firstNumber, +secondNumber);
+        const result = Cal.product();
+        res.status(200).render('result', { 
+            result: result,
+            firstNumber,
+            secondNumber
+        });
+    }
 });
 
 
