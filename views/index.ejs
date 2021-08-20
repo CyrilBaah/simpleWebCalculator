@@ -9,12 +9,13 @@
 </head>
 
 <body>
-    <form style="text-align: center;" action="/result" method="POST">
+    <form style="text-align: center;" onclick="return validate()" action="/result" method="POST">
         <h1>Sum and Product Calculator</h1>
 
         <div>
             <label for="operation">Operation</label>
-            <select name="operation" id="operation">
+            <select name="operation" id="operation" selected>
+                <option value="">Select Operation </option>
                 <option value="add"> Add </option>
                 <option value="product"> Product </option>
             </select>
@@ -22,12 +23,12 @@
 
         <div>
             <label for="First-Number">First Number</label><br>
-            <input type="number" name="firstNumber" id="firstNumber">
+            <input type="text" name="firstNumber" id="firstNumber">
         </div><br>
 
         <div>
             <label for="Second-Number"> Second Number </label><br>
-            <input type="number" name="secondNumber" id="secondNumber">
+            <input type="text" name="secondNumber" id="secondNumber">
         </div><br>
 
         <div>
@@ -36,5 +37,25 @@
 
     </form>
 </body>
+
+<script>
+    const validate = () => {
+        const firstNumber = +document.getElementById('firstNumber').value;
+        const secondNumber = +document.getElementById('secondNumber').value;
+        const operation = document.getElementById('operation');
+        const selectedOperation = operation.selectedIndex;
+        console.log(selectedOperation);
+        if (isNaN (firstNumber) || isNaN (secondNumber)) {
+            alert('The inputs must be numbers');
+            return false;
+        }  
+
+        if (operation.options[selectedOperation].value === ""){
+            alert("Select an operation");
+            return false;
+        }
+        return true;
+    }
+</script>
 
 </html>
