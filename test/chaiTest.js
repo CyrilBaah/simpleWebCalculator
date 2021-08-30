@@ -1,7 +1,7 @@
-const chai = require('chai')
+const chai = require('chai');
 const expect = chai.expect;
 
-const Calculator = require('../calculator')
+const Calculator = require('../calculator');
 
 describe('Calculator', () => {
     it('should return true if both inputs are numbers', () => {
@@ -13,5 +13,4 @@ describe('Calculator', () => {
         const calculator = new Calculator(2, 'join')
         expect(calculator.validateInput()).to.be.false
     })
-
 })
